@@ -74,12 +74,14 @@
 				</div>
 				<!--state overview end-->
 
-				<div class="row">
-					<div class="col-md-12">
-						Do something from here
-					</div>
-				</div>
+				<button data-toggle="modal" data-target="#expenseModal" type="button" title="Add your Expense" class="btn btn-danger expense-btn"><i class="fa fa-minus"></i></button>
+				<button data-toggle="modal" data-target="#transferModal" type="button" title="Add your Transfer" class="btn btn-primary transfer-btn"><i class="fa fa-retweet"></i></button>
+				<button data-toggle="modal" data-target="#saveModal" type="button" title="Add your Income" class="btn btn-success save-btn"><i class="fa fa-plus"></i></button>
 
+				<!-- Modals -->
+				<span th:substituteby="views/expense-modal :: expense-modal"></span>
+				<span th:substituteby="views/transfer-modal :: transfer-modal"></span>
+				<span th:substituteby="views/save-modal :: save-modal"></span>
 			</section>
 		</section>
 		<!--main content end-->

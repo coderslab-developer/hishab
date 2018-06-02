@@ -202,9 +202,9 @@
 						class="fa fa-dashboard"></i> <span>Dashboard</span>
 				</a></li>
 
-				<li><a th:href="@{/}"> <i class="fa fa-dashboard"></i> <span>My
-							Wallets Status</span>
-				</a></li>
+				<li>
+					<a th:href="@{/wallet}"> <i class="fa fa-dashboard"></i> <span>My Wallets Status</span></a>
+				</li>
 
 				<li><a th:href="@{/}"> <i class="fa fa-dollar"></i> <span>My
 							Income Status</span>
@@ -478,6 +478,7 @@
 			owl.reinit();
 		});
 	</script>
+	<script th:src="@{/js/hishab.js}"></script>
 </span>
 
 <span th:remove="tag" th:fragment="common-copyright" xmlns:th="http://www.thymeleaf.org">
