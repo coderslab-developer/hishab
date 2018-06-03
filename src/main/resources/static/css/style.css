@@ -6156,23 +6156,6 @@ header.green-bg .search:focus, header.dark-bg .search:focus, header.purple-bg .s
 	list-style: disc;
 }
 
-.expense-btn{
-	position: absolute;
-	bottom: 10px;
-	right: 187px;
-}
-.transfer-btn{
-	position: absolute;
-	bottom: 10px;
-	right: 100px;
-}
-.save-btn, .wallet-btn{
-	position: absolute;
-	bottom: 10px;
-	right: 15px;
-}
-.expense-btn, .transfer-btn, .save-btn, .wallet-btn{
-	padding: 30px;
-	border-top-left-radius: 50%;
-	border-top-right-radius: 50%;
+.required{
+	border: 1px solid red;
 }

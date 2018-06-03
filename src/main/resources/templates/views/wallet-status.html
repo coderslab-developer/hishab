@@ -8,7 +8,7 @@
 <meta name="author" content="Zubayer Ahamed" />
 <meta name="keyword" content="Hisab, Accounting Software" />
 <link rel="shortcut icon" th:href="@{/img/favicon.html}" />
-<title th:text="#{page.title.home}">Home</title>
+<title th:text="#{page.title.wallet.status}">Wallet Status</title>
 <meta th:substituteby="commons :: common-css"></meta>
 <link th:href="@{/assets/morris.js-0.4.3/morris.css}" rel="stylesheet" />
 </head>
@@ -27,9 +27,15 @@
 		<section id="main-content">
 			<section class="wrapper">
 
+				<div class="row">
+					<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
+						<button data-toggle="modal" data-target="#walletModal" type="button" title="Add your Wallet" class="btn btn-success wallet-btn"><i class="fa fa-plus"></i> Add your wallet</button>
+					</div>
+				</div>
+
 				<div id="morris">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-md-3">
 							<section class="panel">
 								<header class="panel-heading">
 									Wallet Status
@@ -42,8 +48,6 @@
 					</div>
 				</div>
 
-				<button data-toggle="modal" data-target="#walletModal" type="button" title="Add your Wallet" class="btn btn-success wallet-btn"><i class="fa fa-plus"></i></button>
-
 				<!-- Modals -->
 				<span th:substituteby="views/wallet-modal :: wallet-modal"></span>
 			</section>
@@ -55,15 +59,12 @@
 		<!-- Right Slidebar end -->
 	</section>
 
-	<section>
-		<span th:substituteby="commons :: common-copyright"></span>
-	</section>
-
 	<!-- js -->
 	<span th:substituteby="commons :: common-js"></span>
 	<script th:src="@{/assets/morris.js-0.4.3/morris.min.js}" type="text/javascript"></script>
 	<script th:src="@{/assets/morris.js-0.4.3/raphael-min.js}" type="text/javascript"></script>
 	<script th:src="@{/js/morris-script.js}"></script>
+	<script th:src="@{/js/form-component.js}"></script>
 </body>
 
 <!-- Mirrored from thevectorlab.net/flatlab/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Aug 2016 22:09:45 GMT -->

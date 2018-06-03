@@ -26,6 +26,9 @@ public class Wallet {
 	@Column(name = "walletId", unique = true, nullable = false)
 	private Integer walletId;
 
+	@Column(name = "userId")
+	private Integer userId;
+
 	@Column(name = "walletName", length = 200)
 	private String walletName;
 
