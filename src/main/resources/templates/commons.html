@@ -168,22 +168,19 @@
 				<li><input type="text" class="form-control search"
 					placeholder="Search" /></li>
 				<!-- user login dropdown start-->
-				<li class="dropdown"><a data-toggle="dropdown"
-					class="dropdown-toggle" href="#"> <img alt=""
-						src="img/avatar1_small.jpg" /> <span class="username">Jhon
-							Doue</span> <b class="caret"></b>
-				</a>
+				<li class="dropdown">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#"> 
+						<img alt="" src="img/avatar1_small.jpg" /> <span class="username">Zubayer Ahamed</span> <b class="caret"></b>
+					</a>
 					<ul class="dropdown-menu extended logout">
 						<div class="log-arrow-up"></div>
 						<li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
 						<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-						<li><a href="#"><i class="fa fa-bell-o"></i>
-								Notification</a></li>
-						<li><a href="login.html"><i class="fa fa-key"></i> Log
-								Out</a></li>
-					</ul></li>
-				<li class="sb-toggle-right"><i class="fa  fa-align-right"></i>
+						<li><a href="#"><i class="fa fa-bell-o"></i>Notification</a></li>
+						<li><a th:href="@{/logout}"><i class="fa fa-key"></i> Log Out</a></li>
+					</ul>
 				</li>
+				<li class="sb-toggle-right"><i class="fa  fa-align-right"></i></li>
 				<!-- user login dropdown end -->
 			</ul>
 			<!--search & user info end-->
@@ -416,6 +413,9 @@
 	<link th:href="@{/assets/font-awesome/css/font-awesome.css}" rel="stylesheet" />
 	<link th:href="@{/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css}" rel="stylesheet" type="text/css" media="screen"/>
 	<link rel="stylesheet" th:href="@{/css/owl.carousel.css}" type="text/css"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/assets/bootstrap-datepicker/css/datepicker.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/assets/bootstrap-colorpicker/css/colorpicker.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/assets/bootstrap-daterangepicker/daterangepicker.css}" />
 
 	<!--right slidebar-->
 	<link th:href="@{/css/slidebars.css}" rel="stylesheet"/>
@@ -443,6 +443,14 @@
 	<script th:src="@{/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js}"></script>
 	<script th:src="@{/js/owl.carousel.js}"></script>
 	<script th:src="@{/js/jquery.customSelect.min.js}"></script>
+	<script th:src="@{/js/bootstrap-switch.js}"></script>
+	<script src="js/jquery.tagsinput.js"></script>
+	<script type="text/javascript" th:src="@{/js/ga.js}"></script>
+	<script type="text/javascript" th:src="@{/assets/bootstrap-datepicker/js/bootstrap-datepicker.js}"></script>
+	<script type="text/javascript" th:src="@{/assets/bootstrap-daterangepicker/date.js}"></script>
+	<script type="text/javascript" th:src="@{/assets/bootstrap-daterangepicker/daterangepicker.js}"></script>
+	<script type="text/javascript" th:src="@{/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js}"></script>
+	<script type="text/javascript" th:src="@{/assets/ckeditor/ckeditor.js}"></script>
 	<script th:src="@{/js/respond.min.js}"></script>
 
 	<!--right slidebar-->
@@ -479,17 +487,4 @@
 		});
 	</script>
 	<script th:src="@{/js/hishab.js}"></script>
-</span>
-
-<span th:remove="tag" th:fragment="common-copyright" xmlns:th="http://www.thymeleaf.org">
-	<!--footer start-->
-	<footer class="site-footer"
-		style="position: fixed; bottom: 0; width: 100%;">
-		<div class="text-center">
-			2018 &copy; CodersLab by Zubayer Ahamed <a href="#" class="go-top">
-				<i class="fa fa-angle-up"></i>
-			</a>
-		</div>
-	</footer>
-	<!--footer end-->
 </span>

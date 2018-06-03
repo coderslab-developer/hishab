@@ -35,3 +35,12 @@ spring:
 security:
   basic:
     enabled: false
+    
+logging:
+  level:
+    org:
+      springframework:
+        web: ERROR
+    hibernate: 
+      SQL: DEBUG
+      type: TRACE 

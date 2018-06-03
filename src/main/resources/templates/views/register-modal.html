@@ -1,0 +1,58 @@
+<span th:remove="tag" th:fragment="register-modal" xmlns:th="http://www.thymeleaf.org">
+	<div class="modal fade modal-dialog-center " id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content-wrap">			
+				<div class="modal-content">
+					<div class="modal-header text-white">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center"><i class="fa fa-user"></i> Register Account</h4>
+					</div>
+					<div class="modal-body">
+						<form th:action="@{/register}" method="post" class="register-form cmxform form-horizontal" role="form">
+							<div class="form-group">
+								<label for="firstName" class="col-lg-3 col-sm-3 control-label">First name</label>
+								<div class="col-lg-9">
+									<input type="text" id="firstName" name="firstName" class="form-control" placeholder="First name" required="required"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="lastName" class="col-lg-3 col-sm-3 control-label">Last name</label>
+								<div class="col-lg-9">
+									<input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last name" required="required"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="username" class="col-lg-3 col-sm-3 control-label">Username</label>
+								<div class="col-lg-9">
+									<input type="text" id="username" name="username" class="form-control" placeholder="Username" required="required"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for='email' class="col-lg-3 col-sm-3 control-label">Email</label>
+								<div class="col-lg-9">
+									<input type="text" id="email" name="email" class="form-control" placeholder="email" required="required"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-lg-3 col-sm-3 control-label">Password</label>
+								<div class="col-lg-9">
+									<input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for='mobile' class="col-lg-3 col-sm-3 control-label">Mobile</label>
+								<div class="col-lg-9">
+									<input type="text" id="mobile" name="mobile" class="form-control" placeholder="Mobile number" required="required"/>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button data-dismiss="modal" class="btn btn-danger" type="submit">DISCARD</button>
+						<button class="btn btn-success register" type="button">REGISTER</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</span>
