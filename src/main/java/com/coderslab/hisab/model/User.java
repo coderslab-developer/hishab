@@ -42,6 +42,9 @@ public class User {
 	@Column(name = "email", length = 200)
 	private String email;
 
+	@Column(name = "password", length = 200)
+	private String password;
+
 	@Column(name = "mobile", length = 11)
 	private String mobile;
 

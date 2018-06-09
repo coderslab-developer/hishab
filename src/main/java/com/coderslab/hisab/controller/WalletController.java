@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/wallet")
-public class WalletController {
+public class WalletController extends HishabController{
 
 	@GetMapping
 	public String loadWalletStatusPage() {
+		System.out.println(appConfig.getLastLogin());
 		return "views/wallet-status";
 	}
 }

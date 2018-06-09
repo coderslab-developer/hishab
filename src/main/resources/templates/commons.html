@@ -170,7 +170,7 @@
 				<!-- user login dropdown start-->
 				<li class="dropdown">
 					<a data-toggle="dropdown" class="dropdown-toggle" href="#"> 
-						<img alt="" src="img/avatar1_small.jpg" /> <span class="username">Zubayer Ahamed</span> <b class="caret"></b>
+						<img alt="" src="img/avatar1_small.jpg" /> <span class="username" th:text="${user.firstName + ' ' + user.lastName}">Zubayer Ahamed</span> <b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu extended logout">
 						<div class="log-arrow-up"></div>
