@@ -79,7 +79,7 @@
 							if(item.value == ''){
 								$('#' + item.name).addClass('required');
 								validateSuccess = false;
-							}else{
+							} else {
 								$('#' + item.name).removeClass('required');
 							}
 						}
@@ -90,8 +90,11 @@
 
 				if(validateSuccess == true){
 					$.post(registerUrl, formData, function(data, status){
-						//console.log(status);
+						console.log(status);
 						console.log(data);
+						if(status == 'success'){
+							$('#registerModal .close').click();
+						}
 					});
 				}
 			});

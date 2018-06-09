@@ -2,8 +2,6 @@ package com.coderslab.hisab.controller;
 
 import java.util.Date;
 
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -24,8 +22,7 @@ public class LoginController {
 	private static final String LOCATION = "views/login";
 
 	@RequestMapping
-	public String loadLoginPage(Model model, HttpSession session) {
-		session.setAttribute("lastLogin", String.valueOf(new Date()));
+	public String loadLoginPage(Model model) {
 		logger.info("Login page called at {}", new Date());
 		return LOCATION;
 	}
