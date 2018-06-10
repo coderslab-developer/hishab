@@ -16,11 +16,11 @@
 <body>
 	<section id="container">
 		<!--header start-->
-		<span th:substituteby="commons :: common-header-top"></span>
+		<span th:substituteby="commons-header :: common-header-top"></span>
 		<!--header end-->
 
 		<!--sidebar start-->
-		<span th:substituteby="commons :: common-sidebar"></span>
+		<span th:substituteby="commons-menu :: common-sidebar"></span>
 		<!--sidebar end-->
 
 		<!--main content start-->
@@ -38,13 +38,15 @@
 						<div class="col-md-3">
 							<section class="panel">
 								<header class="panel-heading">
-									Wallet Status
+									Total: 
+									<span class="total-balance pull-right"></span>
 								</header>
 								<div class="panel-body">
 									<div id="hero-donut" class="graph"></div>
 								</div>
 							</section>
 						</div>
+						<div class="col-md-9 wallets-panel"></div>
 					</div>
 				</div>
 
@@ -55,7 +57,7 @@
 		<!--main content end-->
 
 		<!-- Right Slidebar start -->
-		<span th:substituteby="commons :: common-right-sidebar"></span>
+		<span th:substituteby="commons-sidebar :: common-right-sidebar"></span>
 		<!-- Right Slidebar end -->
 	</section>
 
@@ -65,6 +67,90 @@
 	<script th:src="@{/assets/morris.js-0.4.3/raphael-min.js}" type="text/javascript"></script>
 	<script th:src="@{/js/morris-script.js}"></script>
 	<script th:src="@{/js/form-component.js}"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var getAllWallets = function(){
+				$.get("/wallet/findAll", function(data) {
+					var wallets = data;
+					var walletsPanel = $('.wallets-panel');
+					wallets.forEach(function(item, index){
+						var walletString = '';
+						var walletName = item.walletName == undefined ? '' : item.walletName;
+						var balance = item.currentBalance == undefined ? '' : item.currentBalance;
+						var notes = item.notes == undefined ? '' : item.notes;
+						walletString += '<div class="col-md-12 wallet-item" style="background: white; padding: 20px; border-radius: 5px; margin-bottom: 10px;">' +
+											'<h4>' + walletName + '</h4>' +
+											'<p>Balance :'+ balance +'</p>' +
+											'<p>' + notes + '</p>' +
+											'<div class="btn-group pull-right">' +
+												'<button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>' +
+												'<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>' +
+											'</div>' +
+										'</div>';
+						walletsPanel.append(walletString);
+					});
+					
+					//for chart
+					var filtereddata = [];
+					var totalBalance = 0;
+					data.forEach(function(item, index){
+						totalBalance += item.currentBalance;
+						filtereddata.push({label : item.walletName, value : item.currentBalance});
+					});
+
+					Morris.Donut({
+						element : 'hero-donut',
+						data : filtereddata,
+						colors : [ '#41cac0', '#49e2d7', '#34a39b' ],
+						formatter : function(y) {
+							return y + ' TK';
+						}
+					});
+					
+					$('.total-balance').html(totalBalance + ' TK');
+					
+				})
+			}
+
+			getAllWallets();
+
+			$('.wallet-save').on('click', function(){
+				var formData = $('.wallet-form').serializeArray();
+				var validateSuccess = true;
+
+				//check input field value
+				$.each(formData, function(index, item){
+					var attr = $('#' + item.name).attr('required');
+					if(typeof attr !== typeof undefined){
+						if(attr !== false){
+							if(item.value == ''){
+								$('#' + item.name).addClass('required');
+								validateSuccess = false;
+							} else {
+								$('#' + item.name).removeClass('required');
+							}
+						}
+					}
+				});
+
+				var submitUrl = $('.wallet-form').attr('action');
+
+				if(validateSuccess == true){
+					$.post(submitUrl, formData, function(data, status){
+						if(status == 'success'){
+							showMessage('alert-success', data);
+							$('#walletModal .close').click();
+							$('.wallets-panel').html('');
+							getAllWallets();
+						}
+					});
+				}
+			});
+
+		});
+	</script>
+	<!-- alert message -->
+	<span th:substituteby="commons-message :: common-message"></span>
 </body>
 
 <!-- Mirrored from thevectorlab.net/flatlab/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Aug 2016 22:09:45 GMT -->

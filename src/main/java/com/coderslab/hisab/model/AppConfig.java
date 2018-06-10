@@ -17,6 +17,7 @@ import lombok.Data;
 @Component
 public class AppConfig {
 
+	private String username;
 	private String userFirstName;
 	private String userLastName;
 	private String userEmail;

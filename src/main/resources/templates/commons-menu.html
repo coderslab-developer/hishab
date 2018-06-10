@@ -1,0 +1,98 @@
+<!-- sidebar main menu -->
+<span th:remove="tag" th:fragment="common-sidebar" xmlns:th="http://www.thymeleaf.org">
+	<aside>
+		<div id="sidebar" class="nav-collapse ">
+			<!-- sidebar menu start-->
+			<ul class="sidebar-menu" id="nav-accordion">
+				<h4 style="text-align: center;">Status</h4>
+				<li>
+					<a class="active" th:href="@{/}">
+						<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/wallet}">
+						<i class="fa fa-dashboard"></i> <span>My Wallets Status</span>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-dollar"></i> <span>My Income Status</span>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-shopping-cart"></i><span>My Expense Status</span>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-calendar"></i> <span>Day History</span>
+					</a>
+				</li>
+
+				<h4 style="text-align: center;">Google Drive</h4>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-sign-in"></i> <span>Sign In</span>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-cloud-upload"></i><span>Backup to Drive</span>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-cloud-download"></i><span>Restore from Drive</span>
+					</a>
+				</li>
+
+				<h4 style="text-align: center;">Setting</h4>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-key"></i> <span>Create Password</span>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-dashboard"></i> <span>Remove All</span>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/}">
+						<i class="fa fa-language"></i> <span>Language</span>
+					</a>
+				</li>
+
+				<h4 style="text-align: center;">Application</h4>
+				<li>
+					<a class="active" th:href="@{/}">
+						<i class="fa fa-dashboard"></i> <span>User guide</span>
+					</a>
+				</li>
+				<li>
+					<a class="active" th:href="@{/}">
+						<i class="fa fa-dashboard"></i> <span>Rate Us 5 Star</span>
+					</a>
+				</li>
+				<li>
+					<a class="active" th:href="@{/}">
+						<i class="fa fa-dashboard"></i> <span>Share</span>
+					</a>
+				</li>
+				<li>
+					<a class="active" th:href="@{/}"> 
+						<i class="fa fa-dashboard"></i> <span>Privacy Policy</span>
+					</a>
+				</li>
+				<li>
+					<a class="active" th:href="@{/}">
+						<i class="fa fa-dashboard"></i> <span>About Developer</span>
+					</a>
+				</li>
+			</ul>
+			<!-- sidebar menu end-->
+		</div>
+	</aside>
+</span>

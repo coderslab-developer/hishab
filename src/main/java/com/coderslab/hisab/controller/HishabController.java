@@ -35,6 +35,7 @@ public class HishabController {
 
 		User user = userService.findByUsername(username);
 
+		appConfig.setUsername(user.getUsername());
 		appConfig.setLastLogin(new Date());
 		appConfig.setUserFirstName(user.getFirstName());
 		appConfig.setUserLastName(user.getLastName());
