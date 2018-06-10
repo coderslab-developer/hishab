@@ -8,35 +8,30 @@
 						<h4 class="modal-title text-center">Add Your Wallet</h4>
 					</div>
 					<div class="modal-body">
-						<form class="wallet-form form-horizontal" role="form">
+						<form th:action="@{/wallet/save}" class="wallet-form form-horizontal" role="form" method="post">
 							<div class="form-group">
-								<label class="col-lg-3 col-sm-3 control-label">Wallet name</label>
+								<label for="walletName" class="col-lg-3 col-sm-3 control-label">Wallet name</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control"  placeholder="Wallet name"/>
+									<input type="text" id="walletName" name="walletName" class="form-control"  placeholder="Wallet name" required="required"/>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-3 col-sm-3 control-label">Current balance</label>
+								<label for="currentBalance" class="col-lg-3 col-sm-3 control-label">Current balance</label>
 								<div class="col-lg-9">
-									<input type="number" min="0" class="form-control" placeholder="0.0"/>
+									<input type="number" id="currentBalance" name="currentBalance" min="0" class="form-control" placeholder="0.0" required="required"/>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-3 col-sm-3 control-label">Note</label>
+								<label for="note" class="col-lg-3 col-sm-3 control-label">Note</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control"  placeholder="Note"/>
+									<input type="text" id="note" name="note" class="form-control"  placeholder="Note"/>
 								</div>
-							</div>
-							<div class="checkboxes">
-								<label class="label_check">
-									<input type="checkbox"/> Is this Credit/Master Car or any kind of loan from which you can borrow money to pay later?
-								</label>
 							</div>
 						</form>
 					</div>
 					<div class="modal-footer">
 						<button data-dismiss="modal" class="btn btn-danger" type="button">DISCARD</button>
-						<button class="btn btn-success" type="button">SAVE</button>
+						<button class="wallet-save btn btn-success" type="button">SAVE</button>
 					</div>
 				</div>
 			</div>

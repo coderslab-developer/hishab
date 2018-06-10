@@ -14,12 +14,13 @@
 
 <body>
 	<section id="container">
+	
 		<!--header start-->
-		<span th:substituteby="commons :: common-header-top"></span>
+		<span th:substituteby="commons-header :: common-header-top"></span>
 		<!--header end-->
 
 		<!--sidebar start-->
-		<span th:substituteby="commons :: common-sidebar"></span>
+		<span th:substituteby="commons-menu :: common-sidebar"></span>
 		<!--sidebar end-->
 
 		<!--main content start-->
@@ -101,12 +102,13 @@
 		<!--main content end-->
 
 		<!-- Right Slidebar start -->
-		<span th:substituteby="commons :: common-right-sidebar"></span>
+		<span th:substituteby="commons-sidebar :: common-right-sidebar"></span>
 		<!-- Right Slidebar end -->
 	</section>
 
 	<!-- js -->
 	<span th:substituteby="commons :: common-js"></span>
+	<span th:substituteby="commons-message :: common-message"></span>
 </body>
 
 <!-- Mirrored from thevectorlab.net/flatlab/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Aug 2016 22:09:45 GMT -->

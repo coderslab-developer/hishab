@@ -40,7 +40,4 @@ public class Wallet {
 
 	@Column(name = "note", length = 65535)
 	private String note;
-
-	@Column(name = "creditOrMasterCard", columnDefinition = "BOOLEAN")
-	private boolean creditOrMasterCard;
 }

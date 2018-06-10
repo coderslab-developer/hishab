@@ -8,16 +8,13 @@
 <meta name="keyword" content="Hisab, Accounting Software" />
 <link rel="shortcut icon" th:href="@{/img/favicon.html}" />
 <title th:text="#{page.title.login}">Login</title>
-<!-- <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
-<link th:href="@{/css/bootstrap-reset.css}" rel="stylesheet"/>
-<link th:href="@{/assets/font-awesome/css/font-awesome.css}" rel="stylesheet" />
-<link th:href="@{/css/style.css}" rel="stylesheet"/>
-<link th:href="@{/css/style-responsive.css}" rel="stylesheet" /> -->
 <meta th:substituteby="commons :: common-css"></meta>
 </head>
 <body class="login-body">
 
 	<div class="container">
+		<!-- alert message -->
+		<span th:substituteby="commons-message :: common-message"></span>
 
 		<div class="row">
 			<div class="col-md-12">
@@ -86,10 +83,10 @@
 					}
 				})
 
-				var registerUrl = $('.register-form').attr('action');
+				var submitUrl = $('.register-form').attr('action');
 
 				if(validateSuccess == true){
-					$.post(registerUrl, formData, function(data, status){
+					$.post(submitUrl, formData, function(data, status){
 						console.log(status);
 						console.log(data);
 						if(status == 'success'){
