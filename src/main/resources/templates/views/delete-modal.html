@@ -1,0 +1,17 @@
+<span th:remove="tag" th:fragment="delete-modal" xmlns:th="http://www.thymeleaf.org">
+	<div class="modal fade modal-dialog-center " id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content-wrap">
+				<div class="modal-content">
+					<div class="modal-header" style="border-radius: 5px; background: #fff; color: #000;">
+						<input type="hidden" id="deleteId" value=""/>
+						<input type="hidden" id="deleteUrl" value=""/>
+						<h4 class="modal-title text-center" style="display: inline-block; margin: 0px; padding: 0px;">Are you sure to delete this item ?</h4>
+						<button data-dismiss="modal" class="btn btn-danger btn-sm pull-right btn-discard" type="button">DISCARD</button>
+						<button class="delete-confirm-btn btn btn-sm btn-success pull-right" style="margin-right: 10px;" type="button">OK</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</span>

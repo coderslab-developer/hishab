@@ -1,0 +1,9 @@
+.wallet-item:hover{
+	box-shadow: 0px 0px 10px #DDD;
+}
+.wallet-item{
+	height: 60px;
+}
+.wallet-item button{
+	margin-top: -5px;
+}
