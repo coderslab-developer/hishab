@@ -25,7 +25,15 @@ public class WalletService {
 		return w == null ? false : true;
 	}
 
+	public Wallet findOne(Integer walletId) {
+		return walletRepository.findOne(walletId);
+	}
+
 	public List<Wallet> findAllByUserId(Integer userId){
 		return walletRepository.findAllByUserId(userId);
+	}
+
+	public void delete(Integer walletId) {
+		walletRepository.delete(walletId);
 	}
 }
