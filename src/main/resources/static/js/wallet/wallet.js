@@ -1,12 +1,38 @@
-$(document).ready(function(){
-	findAllUrl = $('#findAllUrl').attr('href');
-	deleteUrl = $('#deleteUrl').attr('href');
+/**
+ * Global namespace 'cl' for CodersLab Bangladesh Ltd
+ */
+var cl = cl || {};
+/**
+ * Hishab namespace
+ */
+cl.hishab = cl.hishab || {};
+/**
+ * Wallet name space
+ */
+cl.hishab.wallet = cl.hishab.wallet || {};
+
+cl.hishab.wallet.resetModal = function(){
+	$('.wallet-form').trigger('reset');
+	$('.wallet-save').html("Save");
+	$('.wallet-modal-title').html("Add Your Wallet");
+}
+
+cl.hishab.wallet.GetAllWalletsInfo = function(){
+	$.get(cl.hishab.wallet.findAllUrl, function(data) {
+		this.wallets = data;
+	});
+}
+
+$(document).ready(function() {
+
+	cl.hishab.wallet.findAllUrl = $('#findAllUrl').attr('href');
+	cl.hishab.wallet.deleteUrl = $('#deleteUrl').attr('href');
 
 	/*
 	 * Find All Wallets
 	 */
 	var initWallets = function(){
-		$.get(findAllUrl, function(data) {
+		$.get(cl.hishab.wallet.findAllUrl, function(data) {
 			var wallets = data;
 			var walletsPanel = $('.wallets-panel');
 			wallets.forEach(function(item, index){
@@ -62,7 +88,7 @@ $(document).ready(function(){
 			$('.delete-wallet').on('click', function() {
 				var walletId = $(this).attr('wallet-id');
 				$('#deleteId').val(walletId);
-				$('#deleteUrl').val(deleteUrl);
+				$('#deleteUrl').val(cl.hishab.wallet.deleteUrl);
 			});
 
 			/**
@@ -121,14 +147,8 @@ $(document).ready(function(){
 	});
 
 	$('.wallet-btn').on('click', function() {
-		resetModal();
+		cl.hishab.wallet.resetModal();
 	});
-
-	var resetModal = function(){
-		$('.wallet-form').trigger('reset');
-		$('.wallet-save').html("Save");
-		$('.wallet-modal-title').html("Add Your Wallet");
-	}
 
 	$('.delete-confirm-btn').on('click', function() {
 		var id = $('#deleteId').val();
