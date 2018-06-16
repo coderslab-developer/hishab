@@ -12,15 +12,9 @@ cl.hishab = cl.hishab || {};
 cl.hishab.wallet = cl.hishab.wallet || {};
 
 cl.hishab.wallet.resetModal = function(){
-	$('.wallet-form').trigger('reset');
+	resetForm('wallet-form');
 	$('.wallet-save').html("Save");
 	$('.wallet-modal-title').html("Add Your Wallet");
-}
-
-cl.hishab.wallet.GetAllWalletsInfo = function(){
-	$.get(cl.hishab.wallet.findAllUrl, function(data) {
-		this.wallets = data;
-	});
 }
 
 $(document).ready(function() {
@@ -114,33 +108,19 @@ $(document).ready(function() {
 	initWallets();
 
 	$('.wallet-save').on('click', function(){
-		var formData = $('.wallet-form').serializeArray();
-		var validateSuccess = true;
+		var formName = 'wallet-form';
+		var formData = $('.' + formName).serializeArray();
+		var status = ValidateForm(formName);
+		var submitUrl = $('.' + formName).attr('action');
 
-		//check input field value
-		$.each(formData, function(index, item){
-			var attr = $('#' + item.name).attr('required');
-			if(typeof attr !== typeof undefined){
-				if(attr !== false){
-					if(item.value == ''){
-						$('#' + item.name).addClass('required');
-						validateSuccess = false;
-					} else {
-						$('#' + item.name).removeClass('required');
-					}
-				}
-			}
-		});
-
-		var submitUrl = $('.wallet-form').attr('action');
-
-		if(validateSuccess == true){
+		if(status == true){
 			$.post(submitUrl, formData, function(data, status){
 				if(status == 'success'){
 					showMessage('alert-success', data);
 					$('#walletModal .close').click();
 					$('.wallets-panel').html('');
 					initWallets();
+					cl.hishab.wallet.resetModal();
 				}
 			});
 		}
@@ -159,6 +139,7 @@ $(document).ready(function() {
 			$('#deleteModal .btn-discard').click();
 			$('.wallets-panel').html('');
 			initWallets();
+			cl.hishab.wallet.resetModal();
 		});
 	});
 
