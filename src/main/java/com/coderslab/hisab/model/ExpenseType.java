@@ -32,6 +32,9 @@ public class ExpenseType {
 	@Column(name = "icon", length = 200)
 	private String icon;
 
-	@Column(name = "note", length = 65535)
-	private String note;
+	@Column(name = "notes", length = 65535)
+	private String notes;
+	
+	@Column(name = "userId")
+	private Integer userId;
 }
