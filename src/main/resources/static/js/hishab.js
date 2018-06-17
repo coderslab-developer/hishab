@@ -19,19 +19,18 @@ $(document).ready(function() {
 		var formData = $('.' + formname).serializeArray();
 		var validateSuccess = true;
 		$.each(formData, function(index, item){
-			var attr = $('#' + item.name).attr('required');
-			if(typeof attr !== typeof undefined){
-				if(attr !== false){
+			var attr = $('.' + formname + ' #' + item.name).attr('required');
+			if(typeof attr != typeof undefined){
+				if(attr != false){
 					if(item.value == ''){
-						$('#' + item.name).addClass('required');
+						$('.' + formname + ' #' + item.name).addClass('required');
 						validateSuccess = false;
 					} else {
-						$('#' + item.name).removeClass('required');
+						$('.' + formname + ' #' + item.name).removeClass('required');
 					}
 				}
 			}
 		});
-
 		return validateSuccess;
 	}
 

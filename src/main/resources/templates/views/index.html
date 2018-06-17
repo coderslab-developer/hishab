@@ -96,6 +96,8 @@
 				<span th:substituteby="views/expense-modal :: expense-modal"></span>
 				<span th:substituteby="views/transfer-modal :: transfer-modal"></span>
 				<span th:substituteby="views/save-modal :: save-modal"></span>
+				<span th:substituteby="views/wallet-modal :: wallet-modal"></span>
+				<span th:substituteby="views/expensetype-modal :: expensetype-modal"></span>
 			</section>
 		</section>
 		<!--main content end-->
@@ -107,6 +109,9 @@
 
 	<!-- js -->
 	<span th:substituteby="commons :: common-js"></span>
+	<script th:src="@{/js/home/expensetype.js}"></script>
+
+	<!-- alert message -->
 	<span th:substituteby="commons-message :: common-message"></span>
 </body>
 </html>

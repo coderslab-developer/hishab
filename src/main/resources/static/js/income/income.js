@@ -7,7 +7,7 @@ var cl = cl || {};
  */
 cl.hishab = cl.hishab || {};
 /**
- * Wallet name space
+ * Income name space
  */
 cl.hishab.income = cl.hishab.income || {};
 
