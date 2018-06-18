@@ -6175,7 +6175,7 @@ header.green-bg .search:focus, header.dark-bg .search:focus, header.purple-bg .s
 	box-shadow: 0px 0px 10px #000;
 }
 
-.alert {
+.alert, .nodisplay {
 	display: none;
 }
 
