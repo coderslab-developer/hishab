@@ -38,6 +38,12 @@ public class Transaction {
 	@Column(name = "expenseAmount")
 	private double expenseAmount;
 
+	@Column(name = "transferAmount")
+	private double transferAmount;
+
+	@Column(name = "incomeAmount")
+	private double incomeAmount;
+
 	@Column(name = "transactionCharge")
 	private double transactionCharge;
 
@@ -54,14 +60,17 @@ public class Transaction {
 	private Integer expenseTypeId;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "date", nullable = false, length = 10)
-	private Date date;
+	@Column(name = "transactionDate", nullable = false, length = 10)
+	private Date transactionDate;
 
-	@Column(name = "time", length = 200)
-	private String time;
+	@Column(name = "transactionTime", length = 200)
+	private String transactionTime;
 
-	@Column(name = "note", length = 65535)
-	private String note;
+	@Column(name = "notes", length = 65535)
+	private String notes;
+
+	@Column(name = "userId")
+	private Integer userId;
 
 	@Transient
 	private List<Wallet> wallets;

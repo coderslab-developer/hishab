@@ -3,16 +3,22 @@
  */
 package com.coderslab.hisab.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.coderslab.hisab.model.ExpenseType;
+import com.coderslab.hisab.model.User;
+import com.coderslab.hisab.model.Wallet;
 import com.coderslab.hisab.service.ExpenseTypeService;
 
 /**
@@ -53,5 +59,11 @@ public class ExpenseTypeController extends HishabController {
 		}
 
 		return new ResponseEntity<String>("Expense type not update", HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	@GetMapping("/findAll")
+	public @ResponseBody List<ExpenseType> findAllExpenseType(){
+		User user = userService.findByUsername(appConfig.getUsername());
+		return expenseTypeService.findAllByUserId(user.getUserId());
 	}
 }
