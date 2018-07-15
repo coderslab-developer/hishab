@@ -36,16 +36,16 @@ public class Transaction {
 	private String transactionType;
 
 	@Column(name = "expenseAmount")
-	private double expenseAmount;
+	private Double expenseAmount;
 
 	@Column(name = "transferAmount")
-	private double transferAmount;
+	private Double transferAmount;
 
 	@Column(name = "incomeAmount")
-	private double incomeAmount;
+	private Double incomeAmount;
 
 	@Column(name = "transactionCharge")
-	private double transactionCharge;
+	private Double transactionCharge;
 
 	@Column(name = "fromWalletId")
 	private Integer fromWalletId;
@@ -59,9 +59,8 @@ public class Transaction {
 	@Column(name = "expenseTypeId")
 	private Integer expenseTypeId;
 
-	@Temporal(TemporalType.DATE)
 	@Column(name = "transactionDate", nullable = false, length = 10)
-	private Date transactionDate;
+	private String transactionDate;
 
 	@Column(name = "transactionTime", length = 200)
 	private String transactionTime;
