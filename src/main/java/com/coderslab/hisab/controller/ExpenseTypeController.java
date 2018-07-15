@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.coderslab.hisab.model.ExpenseType;
 import com.coderslab.hisab.model.User;
-import com.coderslab.hisab.model.Wallet;
 import com.coderslab.hisab.service.ExpenseTypeService;
 
 /**

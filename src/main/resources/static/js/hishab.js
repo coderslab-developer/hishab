@@ -20,13 +20,17 @@ $(document).ready(function() {
 		var validateSuccess = true;
 		$.each(formData, function(index, item){
 			var attr = $('.' + formname + ' #' + item.name).attr('required');
-			if(typeof attr != typeof undefined){
-				if(attr != false){
-					if(item.value == ''){
-						$('.' + formname + ' #' + item.name).addClass('required');
-						validateSuccess = false;
-					} else {
-						$('.' + formname + ' #' + item.name).removeClass('required');
+			var parentDiv = $('.' + formname + ' #' + item.name).parents('.form-group');
+			var isHasNodisplay = parentDiv.hasClass('nodisplay');
+			if(isHasNodisplay == false){
+				if(typeof attr != typeof undefined){
+					if(attr != false){
+						if(item.value == ''){
+							$('.' + formname + ' #' + item.name).addClass('required');
+							validateSuccess = false;
+						} else {
+							$('.' + formname + ' #' + item.name).removeClass('required');
+						}
 					}
 				}
 			}
